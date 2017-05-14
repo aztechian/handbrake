@@ -9,4 +9,4 @@ echo "app_Key = \"${KEY}\"" > ${HOME}/.MakeMKV/settings.conf
 
 set +x
 echo "makemkvcon backup --decrypt $@"
-makemkvcon backup --decrypt $@
+exec makemkvcon backup --decrypt $@
