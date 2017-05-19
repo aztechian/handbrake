@@ -8,7 +8,7 @@ ENV USERNAME="transmission" \
     LANG="C.UTF-8" \
     DEBIAN_FRONTEND=noninteractive
 
-LABEL maintainer="Ian Martin <ian@imartin.net>" license="MIT" version=$VERSION
+LABEL maintainer="Ian Martin <ian@imartin.net>" license="MIT" version=$version
 
 COPY settings.json /var/lib/transmission-daemon/
 COPY run.sh /
@@ -20,10 +20,10 @@ RUN apt-get -q update && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/* && \
     chmod +x /run.sh && \
-    mkdir -p /downloads /incomplete /watch /config && \
-    chown -R debian-transmission: /downloads /incomplete /watch /config
+    mkdir -p /transmission && \
+    chown -R debian-transmission: /transmission
 
-VOLUME ["/downloads", "/incomplete", "/watch", "/config"]
+VOLUME ["/transmission"]
 EXPOSE 9091 45555
 USER debian-transmission
 ENTRYPOINT ["/run.sh"]
