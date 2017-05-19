@@ -7,4 +7,4 @@
 
 exec /usr/bin/transmission-daemon --foreground --config-dir /config \
   --log-info  --peerport 45555 --auth --username ${USERNAME} --password ${PASSWORD} \
-  --watch-dir /watch --download-dir /downloads --incomplete-dir /incomplete
+  --watch-dir /transmission/watch --download-dir /transmission/downloads --incomplete-dir /transmission/incomplete
