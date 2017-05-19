@@ -2,6 +2,7 @@
 
 [ ! -f /config/settings.json ] && {
   echo "no settings.json found, seeding with defaults..."
+  mkdir -p /transmission/{config,watch,downloads,incomplete}
   cp /var/lib/transmission-daemon/settings.json /transmission/config/settings.json
 }
 
