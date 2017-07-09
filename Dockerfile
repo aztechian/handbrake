@@ -6,8 +6,13 @@ apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8771ADB0816950D8 && \
 apt-get update && \
 apt-get -y install handbrake-cli && \
 apt-get clean && \
-mkdir -p /media
+addgroup -u 10298 media && \
+adduser --no-create-home -u 10298 -g media media && \
+passwd -l media && \
+mkdir -p /media && \
+chown -R 10298:10298 /media
 
+USER media
 WORKDIR /media
 ENTRYPOINT ["HandBrakeCLI"]
 CMD ["--help"]
