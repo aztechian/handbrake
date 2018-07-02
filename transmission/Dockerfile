@@ -1,6 +1,6 @@
-FROM debian:jessie-slim
+FROM debian:stretch-slim
 
-ARG version=2.9.2
+ARG version=2.92
 
 ENV USERNAME="transmission" \
     PASSWORD="password" \
